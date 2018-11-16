@@ -51,3 +51,7 @@ Destructor:
 
 11 Destructors Kosten:
 33-Cores
+
+
+Angriff:
+Es werden abwechselnd von 13,0 und 14,0 5 Pings gesendet

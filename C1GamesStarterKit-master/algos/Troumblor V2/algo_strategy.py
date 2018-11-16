@@ -64,17 +64,19 @@ class AlgoStrategy(gamelib.AlgoCore):
         ENCRYPTOR_DEPLOY_LOCATION = [[ 4, 13],[ 23, 13],[ 7, 10],[ 20, 10],[ 10, 7],[ 17, 7],[ 13, 4],[ 14, 4],[ 13, 2],[ 14, 2]]
         DESTRUCTOR_DEPLOY_LOCATION = [[ 3, 13],[ 24, 13],[ 6, 10],[ 21, 10],[ 9, 7],[ 18, 7],[ 12, 4],[ 15, 4],[ 16, 2],[ 13, 1],[ 14, 1]]
 
+        if switch:
+            self.deploy_information(game_state, LEFT_PING_LOCATION, PING, 5 )
+            switch = False
+
+        if not switch:
+            self.deploy_information(game_state, RIGHT_PING_LOCATION, PING, 5)
+            switch = True
 
 
         self.deploy_fireWall(game_state, FILTER_DEPLOY_LOCATION, FILTER)
         self.deploy_fireWall(game_state, ENCRYPTOR_DEPLOY_LOCATION, ENCRYPTOR)
         self.deploy_fireWall(game_state, DESTRUCTOR_DEPLOY_LOCATION, DESTRUCTOR)
 
-        if switch:
-            self.deploy_information(game_state, LEFT_PING_LOCATION, PING, 5 )
-
-        if not switch:
-            self.deploy_information(game_state, RIGHT_PING_LOCATION, PING, 5)
 
         game_state.submit_turn()
 
