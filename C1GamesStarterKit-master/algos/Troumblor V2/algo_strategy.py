@@ -53,10 +53,33 @@ class AlgoStrategy(gamelib.AlgoCore):
         gamelib.debug_write('Performing turn {} of your custom algo strategy'.format(game_state.turn_number))
         #game_state.suppress_warnings(True)  #Uncomment this line to suppress warnings.
 
-        self.starter_strategy(game_state)
+        #self.starter_strategy(game_state)
 
         game_state.submit_turn()
 
+    
+    
+    def troumblor_v2(self, game_state):
+        
+    def deploy_fireWall(self, game_state, deploy_location, unit):
+        #get location-info, check if blockend, if not build unit
+        for location in deploy_location:
+            if not game_state.contains_statioary_unit(location):
+                if game_state.can_spawn(unit, location):
+                    game_state.attempt_spawn(unit, location)
+                else:
+                    gamelib.debug_write('Cant Build {} on Location: {}'.format(unit, location))
+
+
+    def deploy_information(self, game_state, deploy_location, unit):
+        #deploy Attacker on given Location
+        for location in deploy_location:
+            if game_state.can_spawn(unit, location):
+                game_state.attempt_spawn(unit, location)
+            else:
+                gamelib.debug_write('Cant Build Attacker unit {} on Location: {}'.format(unit, location))
+
+    
     """
     NOTE: All the methods after this point are part of the sample starter-algo
     strategy and can safey be replaced for your custom algo.
