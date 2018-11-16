@@ -57,19 +57,16 @@ class AlgoStrategy(gamelib.AlgoCore):
         
         switch = True
 
-        LEFT_PING_LOCATION = [[ 13, 0]]
-        RIGHT_PING_LOCATION = [[ 14, 0]]
-
         FILTER_DEPLOY_LOCATION = [[ 4, 12],[ 23, 12],[ 4, 11],[ 5, 11],[ 6, 11],[ 21, 11],[ 22, 11],[ 23, 11],[ 7, 9],[ 20, 9],[ 7, 8],[ 8, 8],[ 9, 8],[ 18, 8],[ 19, 8],[ 20, 8],[ 10, 6],[ 17, 6],[ 10, 5],[ 11, 5],[ 12, 5],[ 15, 5],[ 16, 5],[ 17, 5],[ 13, 3],[ 14, 3]]
         ENCRYPTOR_DEPLOY_LOCATION = [[ 4, 13],[ 23, 13],[ 7, 10],[ 20, 10],[ 10, 7],[ 17, 7],[ 13, 4],[ 14, 4],[ 13, 2],[ 14, 2]]
         DESTRUCTOR_DEPLOY_LOCATION = [[ 3, 13],[ 24, 13],[ 6, 10],[ 21, 10],[ 9, 7],[ 18, 7],[ 12, 4],[ 15, 4],[ 16, 2],[ 13, 1],[ 14, 1]]
 
         if switch:
-            self.deploy_information(game_state, LEFT_PING_LOCATION, PING, 5 )
+            self.deploy_information(game_state, [13, 0], PING, 5 )
             switch = False
 
         if not switch:
-            self.deploy_information(game_state, RIGHT_PING_LOCATION, PING, 5)
+            self.deploy_information(game_state, [14, 0], PING, 5)
             switch = True
 
 
