@@ -94,13 +94,15 @@ class AlgoStrategy(gamelib.AlgoCore):
 
     def deploy_information(self, game_state, location, unit, unitCount):
         #deploy a given count of information-units on spezific location
-        for count in unitCount:
+        for count in range(unitCount):
             if game_state.can_spawn(unit, location):
                 game_state.attempt_spawn(unit, location)
             else:
                 gamelib.debug_write('Cant Build Information-Unit {} on Location: {}'.format(unit, location))
 
-    
+
+
+  
     """
     NOTE: All the methods after this point are part of the sample starter-algo
     strategy and can safey be replaced for your custom algo.
@@ -269,6 +271,7 @@ class AlgoStrategy(gamelib.AlgoCore):
             if not game_state.contains_stationary_unit(location):
                 filtered.append(location)
         return filtered
+
 
 if __name__ == "__main__":
     algo = AlgoStrategy()
