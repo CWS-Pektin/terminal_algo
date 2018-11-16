@@ -93,7 +93,7 @@ class AlgoStrategy(gamelib.AlgoCore):
 
     def deploy_information(self, game_state, location, unit, unitCount):
         #deploy a given count of information-units on spezific location
-        for count in unitCount
+        for count in unitCount:
             if game_state.can_spawn(unit, location):
                 game_state.attempt_spawn(unit, location)
             else:
