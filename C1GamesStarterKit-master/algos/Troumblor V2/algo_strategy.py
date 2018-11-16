@@ -88,18 +88,12 @@ class AlgoStrategy(gamelib.AlgoCore):
         for location in deploy_location:
             if game_state.can_spawn(unit, location):
                 game_state.attempt_spawn(unit, location)
-            else:
-                gamelib.debug_write('Cant Build {} on Location: {}'.format(unit, location))
 
 
     def deploy_information(self, game_state, location, unit, unitCount):
         #deploy a given count of information-units on spezific location
-        for count in range(unitCount):
-            if game_state.can_spawn(unit, location):
-                game_state.attempt_spawn(unit, location)
-            else:
-                gamelib.debug_write('Cant Build Information-Unit {} on Location: {}'.format(unit, location))
-
+        if game_state.can_spawn(unit, location):
+            game_state.attempt_spawn(unit, location, unitCount)
 
 
   
