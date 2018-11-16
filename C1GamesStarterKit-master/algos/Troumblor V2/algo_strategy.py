@@ -52,14 +52,34 @@ class AlgoStrategy(gamelib.AlgoCore):
         game_state = gamelib.GameState(self.config, turn_state)
         gamelib.debug_write('Performing turn {} of your custom algo strategy'.format(game_state.turn_number))
         #game_state.suppress_warnings(True)  #Uncomment this line to suppress warnings.
-
         #self.starter_strategy(game_state)
+        
+        
+        switch = True
+
+        LEFT_PING_LOCATION = [[ 13, 0]]
+        RIGHT_PING_LOCATION = [[ 14, 0]]
+
+        PING_DEPLOY_LOCATION = [[ 4, 12],[ 23, 12],[ 4, 11],[ 5, 11],[ 6, 11],[ 21, 11],[ 22, 11],[ 23, 11],[ 7, 9],[ 20, 9],[ 7, 8],[ 8, 8],[ 9, 8],[ 18, 8],[ 19, 8],[ 20, 8],[ 10, 6],[ 17, 6],[ 10, 5],[ 11, 5],[ 12, 5],[ 15, 5],[ 16, 5],[ 17, 5],[ 13, 3],[ 14, 3]]
+        ENCRYPTOR_DEPLOY_LOCATION = [[ 4, 13],[ 23, 13],[ 7, 10],[ 20, 10],[ 10, 7],[ 17, 7],[ 13, 4],[ 14, 4],[ 13, 2],[ 14, 2]]
+        DESTRUCTOR_DEPLOY_LOCATION = [[ 3, 13],[ 24, 13],[ 6, 10],[ 21, 10],[ 9, 7],[ 18, 7],[ 12, 4],[ 15, 4],[ 16, 2],[ 13, 1],[ 14, 1]]
+
+
+
+        self.deploy_fireWall(game_state, PING_DEPLOY_LOCATION, PING)
+        self.deploy_fireWall(game_state, ENCRYPTOR_DEPLOY_LOCATION, ENCRYPTOR)
+        self.deploy_fireWall(game_state, DESTRUCTOR_DEPLOY_LOCATION, DESTRUCTOR)
+
+        if switch:
+            self.deploy_information(game_state, LEFT_PING_LOCATION, 5 )
+
+        if not switch:
+            self.deploy_information(game_state, RIGHT_PING_LOCATION, 5)
 
         game_state.submit_turn()
 
     
     
-    def troumblor_v2(self, game_state):
         
     def deploy_fireWall(self, game_state, deploy_location, unit):
         #get location-info, check if blockend, if not build unit
@@ -71,13 +91,13 @@ class AlgoStrategy(gamelib.AlgoCore):
                     gamelib.debug_write('Cant Build {} on Location: {}'.format(unit, location))
 
 
-    def deploy_information(self, game_state, deploy_location, unit):
-        #deploy Attacker on given Location
-        for location in deploy_location:
+    def deploy_information(self, game_state, location, unit, unitCount):
+        #deploy a given count of information-units on spezific location
+        for count in unitCount
             if game_state.can_spawn(unit, location):
                 game_state.attempt_spawn(unit, location)
             else:
-                gamelib.debug_write('Cant Build Attacker unit {} on Location: {}'.format(unit, location))
+                gamelib.debug_write('Cant Build Information-Unit {} on Location: {}'.format(unit, location))
 
     
     """
