@@ -1,6 +1,21 @@
 # terminal_algo
 Shit. Algo.
 
+Grundinfos:
+
+Verteidigungs (FireWall) Einheiten
+
+    Filter          1Core       Wand
+    Encryptor       4Cores      Buff
+    Destructor      3Cores      AoE Damage
+
+Angriffs (Information) Einheiten
+    Ping            1Bit        Einfacher Hit
+    EMP             3Bit        Wände Killer
+    Scrambler       1Bit        Einheiten Killer / Tank
+
+
+
 
 Eh Wir Teilen Hier unsere Aktuelle Strategie
 
