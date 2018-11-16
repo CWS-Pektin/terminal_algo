@@ -71,10 +71,10 @@ class AlgoStrategy(gamelib.AlgoCore):
         self.deploy_fireWall(game_state, DESTRUCTOR_DEPLOY_LOCATION, DESTRUCTOR)
 
         if switch:
-            self.deploy_information(game_state, LEFT_PING_LOCATION, 5 )
+            self.deploy_information(game_state, LEFT_PING_LOCATION, PING, 5 )
 
         if not switch:
-            self.deploy_information(game_state, RIGHT_PING_LOCATION, 5)
+            self.deploy_information(game_state, RIGHT_PING_LOCATION, PING, 5)
 
         game_state.submit_turn()
 
