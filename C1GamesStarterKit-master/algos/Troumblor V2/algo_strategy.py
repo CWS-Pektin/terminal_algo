@@ -84,11 +84,10 @@ class AlgoStrategy(gamelib.AlgoCore):
     def deploy_fireWall(self, game_state, deploy_location, unit):
         #get location-info, check if blockend, if not build unit
         for location in deploy_location:
-            if not game_state.contains_statioary_unit(location):
-                if game_state.can_spawn(unit, location):
-                    game_state.attempt_spawn(unit, location)
-                else:
-                    gamelib.debug_write('Cant Build {} on Location: {}'.format(unit, location))
+            if game_state.can_spawn(unit, location):
+                game_state.attempt_spawn(unit, location)
+            else:
+                gamelib.debug_write('Cant Build {} on Location: {}'.format(unit, location))
 
 
     def deploy_information(self, game_state, location, unit, unitCount):
