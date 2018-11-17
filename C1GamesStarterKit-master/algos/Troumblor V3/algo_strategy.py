@@ -62,7 +62,7 @@ class AlgoStrategy(gamelib.AlgoCore):
         for location in deploy_location:
             if game_state.get_resource(game_state.CORES) <= game_state.type_cost(unit):
                 if game_state.can_spawn(unit, location):
-                    print("Eine Firewall: {} wurde auf der Position {} für {} Cores gebaut." format(unit, location, game_state.type_cost(unit))):
+                    print(f"Eine Firewall: {unit} wurde auf der Position {location} für {game_state.type_cost(unit)} Cores gebaut.")
                     game_state.attempt_spawn(unit, location)
 
     def deploy_information(self, game_state, location, unit, unitCount):
