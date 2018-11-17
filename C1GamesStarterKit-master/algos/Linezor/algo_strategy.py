@@ -38,10 +38,10 @@ class AlgoStrategy(gamelib.AlgoCore):
 
         #[[ 5, 8],[ 22, 8],[ 6, 7],[ 21, 7]]
         if game_state.turn_number % 2:
-            self.deploy_information(game_state, [5, 8], PING, 2 )
+            self.deploy_information(game_state, [5, 8], SCRAMBLER, 2 )
             self.deploy_information(game_state, [6, 7], EMP, 1)
         else:
-            self.deploy_information(game_state, [22, 8], PING, 2 )
+            self.deploy_information(game_state, [22, 8], SCRAMBLER, 2 )
             self.deploy_information(game_state, [21, 7], EMP, 1)
 
         
