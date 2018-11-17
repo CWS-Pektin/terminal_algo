@@ -45,9 +45,9 @@ class AlgoStrategy(gamelib.AlgoCore):
             self.deploy_information(game_state, [21, 7], EMP, 1)
 
         
+        self.deploy_fireWall(game_state, UNITBLOCK_DEPLOY_LOCATION, FILTER)
         self.deploy_fireWall(game_state, DESTRUCTOR_DEPLOY_LOCATION, DESTRUCTOR)
         self.deploy_fireWall(game_state, FILTER_DEPLOY_LOCATION, FILTER)
-        self.deploy_fireWall(game_state, UNITBLOCK_DEPLOY_LOCATION, FILTER)
         self.deploy_fireWall(game_state, ENCRYPTOR_DEPLOY_LOCATION, ENCRYPTOR)
 
         game_state.submit_turn()
