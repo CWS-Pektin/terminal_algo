@@ -35,7 +35,7 @@ class AlgoStrategy(gamelib.AlgoCore):
 
         FILTER_DEPLOY_LOCATION = [[ 4, 12],[ 23, 12],[ 4, 11],[ 5, 11],[ 6, 11],[ 21, 11],[ 22, 11],[ 23, 11],[ 7, 9],[ 20, 9],[ 7, 8],[ 8, 8],[ 9, 8],[ 18, 8],[ 19, 8],[ 20, 8],[ 10, 6],[ 17, 6],[ 10, 5],[ 11, 5],[ 12, 5],[ 15, 5],[ 16, 5],[ 17, 5],[ 13, 3],[ 14, 3]]
         ENCRYPTOR_DEPLOY_LOCATION = [[ 4, 13],[ 23, 13],[ 7, 10],[ 20, 10],[ 10, 7],[ 17, 7],[ 13, 4],[ 14, 4],[ 13, 2],[ 14, 2]]
-        DESTRUCTOR_DEPLOY_LOCATION = [[ 3, 13],[ 24, 13],[ 6, 10],[ 21, 10],[ 9, 7],[ 18, 7],[ 12, 4],[ 15, 4],[ 16, 2],[ 13, 1],[ 14, 1]]
+        DESTRUCTOR_DEPLOY_LOCATION = [[ 3, 13],[ 24, 13],[ 6, 10],[ 21, 10],[ 9, 7],[ 18, 7],[ 12, 4],[ 15, 4],[ 13, 2],[ 14, 2]]
 
         if switch:
             self.deploy_information(game_state, [13, 0], PING, 5 )
@@ -60,9 +60,9 @@ class AlgoStrategy(gamelib.AlgoCore):
     def deploy_fireWall(self, game_state, deploy_location, unit):
         #get location-info, check if blockend, if not build unit
         for location in deploy_location:
-            if game_state.get_resource(game_state.CORES) <= game_state.type_cost(unit):
+            if game_state.get_resource(game_state.CORES) >= game_state.type_cost(unit):
                 if game_state.can_spawn(unit, location):
-                    print(f"Eine Firewall: {unit} wurde auf der Position {location} für {game_state.type_cost(unit)} Cores gebaut.")
+                    gamelib.debug_write(f"Eine Firewall: {unit} wurde auf der Position {location} für {game_state.type_cost(unit)} Cores gebaut.")
                     game_state.attempt_spawn(unit, location)
 
     def deploy_information(self, game_state, location, unit, unitCount):
