@@ -19,6 +19,9 @@ Eh Wir Teilen Hier unsere Aktuelle Strategie
 
 Linezor ist im moment der bessere algorythmus
 
+
+
+
 Mögliche verbesserungen:
 * = erledigt
     - Abbauen von halb toten Verteidigern, Man bekommt resourcen zurück kann direkt neue bauen.
