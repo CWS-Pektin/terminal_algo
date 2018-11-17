@@ -41,7 +41,7 @@ class AlgoStrategy(gamelib.AlgoCore):
             self.deploy_information(game_state, [13, 0], PING, 5 )
             switch = False
 
-        if not switch:
+        elif not switch:
             self.deploy_information(game_state, [14, 0], PING, 5)
             switch = True
 
@@ -67,8 +67,9 @@ class AlgoStrategy(gamelib.AlgoCore):
 
     def deploy_information(self, game_state, location, unit, unitCount):
         #deploy a given count of information-units on spezific location
-        if game_state.can_spawn(unit, location):
-            game_state.attempt_spawn(unit, location, unitCount)
+        if game_state.get_resource(game_state.BITS) >= game_state.type_cost(unit, int(round(unit*unitCount))):
+            if game_state.can_spawn(unit, location):
+                game_state.attempt_spawn(unit, location, unitCount)
 
 
 if __name__ == "__main__":
