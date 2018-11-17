@@ -19,8 +19,13 @@ Eh Wir Teilen Hier unsere Aktuelle Strategie
 
 Linezor ist im moment der bessere algorythmus
 
+--------------
+ToDo-Linezor:
 
-
+General:
+    - Verteidigung in der Mitte?
+    - Bei verschiedenen Waves, stärkere Angreifer nutzen.
+    Kann man es den Algo selbst entscheiden lassen?
 
 Mögliche verbesserungen:
 * = erledigt
@@ -28,3 +33,5 @@ Mögliche verbesserungen:
     - Projektile abfeuern von Geld abhängig machen. Damit später auch 2 projektile geschossen werden
     - *Keine Pings mehr verwenden. Anstatt dessen scrambler
     - Baureihenfolge überarbeiten
+
+---------------
