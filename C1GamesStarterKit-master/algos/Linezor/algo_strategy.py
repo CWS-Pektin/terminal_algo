@@ -70,13 +70,14 @@ class AlgoStrategy(gamelib.AlgoCore):
             game_state.attempt_spawn(unit, location, unitCount)
             gamelib.debug_write(f"Es wurden {unitCount} Informations-Einheiten: {unit} wurde auf der Position {location} für {int(game_state.type_cost(unit)*unitCount)} Bits gebaut")
 
-    def replace_damaged (self, game_state, replace_location):
+    def remove_damaged (self, game_state, replace_location):
         #look at given location if a unit needs replacement
         for location in replace_location:           
             unit = game_state.contains_stationary_unit(location)
             if unit and unit.stability / unit.max_stability < 0.5:
                 game_state.attempt_remove(location)
 
+    
 
 
 if __name__ == "__main__":
