@@ -31,6 +31,8 @@ class AlgoStrategy(gamelib.AlgoCore):
         game_state.suppress_warnings(True)
         #______________
         
+        ALL_FIREWALLS = 
+
         FILTER_DEPLOY_LOCATION = [[ 0, 13],[ 1, 13],[ 2, 13],[ 3, 13],[ 4, 13],[ 5, 13],[ 6, 13],[ 7, 13],[ 8, 13],[ 9, 13],[ 10, 13],[ 17, 13],[ 18, 13],[ 19, 13],[ 20, 13],[ 21, 13],[ 22, 13],[ 23, 13],[ 24, 13],[ 25, 13],[ 26, 13],[ 27, 13]]
         ENCRYPTOR_DEPLOY_LOCATION = [[ 10, 11],[ 17, 11],[ 10, 10],[ 17, 10],[ 4, 9],[ 5, 9],[ 6, 9],[ 7, 9],[ 8, 9],[ 9, 9],[ 18, 9],[ 19, 9],[ 20, 9],[ 21, 9],[ 22, 9],[ 23, 9]]
         DESTRUCTOR_DEPLOY_LOCATION = [[ 1, 12],[ 4, 12],[ 7, 12],[ 10, 12],[ 17, 12],[ 20, 12],[ 23, 12],[ 26, 12],[ 10, 9],[ 17, 9]]
@@ -68,6 +70,15 @@ class AlgoStrategy(gamelib.AlgoCore):
         if game_state.can_spawn(unit, location):
             game_state.attempt_spawn(unit, location, unitCount)
             gamelib.debug_write(f"Es wurden {unitCount} Informations-Einheiten: {unit} wurde auf der Position {location} für {int(game_state.type_cost(unit)*unitCount)} Bits gebaut")
+
+    def replace_damaged (self, game_state, replace_location)
+        #look at given location if a unit needs replacement
+        for location in replace_location:           
+            unit = game_state.contains_stationary_unit(location)
+            if unit and unit.stability / unit.max_stability < 0.5:
+                game_state.attempt_remove(location)
+
+    
 
 if __name__ == "__main__":
     algo = AlgoStrategy()
